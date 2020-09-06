@@ -1,0 +1,55 @@
+<style>
+    body {
+        background-color: black;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: white;
+    }
+
+    h1 {
+        margin: 1vmin 0;
+        font: 2rem sans-serif;
+    }
+
+    p {
+        font: 1.5rem sans-serif;
+        margin: 1vmin 5vmin;
+    }
+
+    #content {
+        background-color: white;
+        margin: 10vmin;
+        height: 80vmin;
+        width: 80vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 2vmin;
+        justify-items: stretch;
+        align-items: stretch;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: white;
+        font: 5vmin sans-serif;
+    }
+
+    .reset {
+        margin: 5vh 0 10vh;
+    }
+</style>
+
+<h1>Tic Tac Toe</h1>
+<div id="content">
+</div>
+<p>
+    X goes first. Click on a square to start playing.
+</p>
+<button class="reset"> Click to reset. </button>
