@@ -4,23 +4,26 @@ function markSquare(element) {
 
     return () => 
     {
-        if (element.firstChild.className == 'hitit') {
-            
-            let miss;
-            miss = document.createElement('span');
-            miss.className = 'missme';
-            element.removeChild(element.firstChild);
-            element.append(miss);
-            
+        if(started) {
+            if (element.firstChild.className == 'hitit') {
+
+                let miss;
+                miss = document.createElement('span');
+                miss.className = 'missme';
+                element.removeChild(element.firstChild);
+                element.append(miss);
+
+            }
+            else {
+                let hit;
+                hit = document.createElement('span');
+                hit.className = 'hitit';
+                element.removeChild(element.firstChild);
+                element.append(hit);
+
+            }
         }
-        else {
-            let hit;
-            hit = document.createElement('span');
-            hit.className = 'hitit';
-            element.removeChild(element.firstChild);
-            element.append(hit);
-            
-        }
+        
     }
     
 }
@@ -37,28 +40,27 @@ function destroy(element) {
 
 function markShip(square) {
     return () => {
-        if (square.classList.contains('taken')) {
+        if(started) {
+            if (square.classList.contains('taken')) {
 
-            let hit;
-            hit = document.createElement('span');
-            hit.className = 'hitit';
-            square.removeChild(square.firstChild);
-            square.append(hit);
+                let hit;
+                hit = document.createElement('span');
+                hit.className = 'hitit';
+                square.removeChild(square.firstChild);
+                square.append(hit);
 
+            }
+            else {
+                let miss;
+                miss = document.createElement('span');
+                miss.className = 'missme';
+                square.removeChild(square.firstChild);
+                square.append(miss);
+
+            }
         }
-        else {
-            let miss;
-            miss = document.createElement('span');
-            miss.className = 'missme';
-            square.removeChild(square.firstChild);
-            square.append(miss);
-
-        }
+        
     }
-}
-
-function rotate(element) {
-
 }
 /*
 for rotate, switch class names between vert and hori, or do the same toggle as Brian's code

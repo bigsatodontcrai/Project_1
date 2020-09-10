@@ -73,19 +73,6 @@ function setupShips(parent) {
     
 }
 
-/*function ShipEvents() {
-    const ships = document.querySelectorAll('.ship');
-
-    ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
-        shipById = event.target.id;
-        console.log(shipById);
-    }))
-
-    ships.forEach(ship => ship.addEventListener('dragstart', startDrag));
-
-    ships.forEach(ship => ship.setAttribute('draggable', 'true'));
-}*/
-
 function breakdown(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -95,13 +82,10 @@ function breakdown(parent) {
 }
 
 function startDrag(ev) {
-    console.log('starting drag');
+    console.log(this.className);
     draggedShip = this;
     draggedShipLength = this.childElementCount;
     ev.dataTransfer.dropEffect = "move";
-    console.log(draggedShip.className);
-    console.log(draggedShipLength);
-    console.log('dragging...');
 }
 
 function dragDrop() {
@@ -123,14 +107,15 @@ function dragDrop() {
     isTaken = checkTaken(this, selectedShipIndex);
     console.log(isTaken);
 
-    if(!(isTaken)) {
+    if(!(isTaken) && hori) {
         for (let i = 0; i < draggedShipLength; i++) {
-            
-            
             pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', shipClass);
             
-            
-            
+        }
+    }
+    else if(!(isTaken) && !(hori)) {
+        for (let i = 0; i < draggedShipLength; i++) {
+            pSquares[9*i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', shipClass);
         }
     }
     if(!isTaken) {
