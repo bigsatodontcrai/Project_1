@@ -1,55 +1,76 @@
-<style>
-    body {
-        background-color: black;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        color: white;
-    }
+<html>
+<body>
+    <link rel="stylesheet" href="styles.css"></link>
 
-    h1 {
-        margin: 1vmin 0;
-        font: 2rem sans-serif;
-    }
+    <title>Battleship</title>
+    <div id="view">
+        <div id="content">
+        </div>
+        <div id="ocean">
+        </div>
+        </div>
+    <div id="whoseboard">
+        <button id = "opponent" class = "btns">
+            Opponent
+        </button>
+        <button id="player" class = "btns">
+            Player
+        </button>
+    </div>
+    <button class="reset"> Click to reset. </button>
+    <div class="buttons" id="buttonsGone">
+    
+        <button id="start" class="btns">Click to Start</button>
+        <button id="rotate" class="btns">Rotate H/V</button>
+    </div>
+    
+    <div id="base">
+        <div class="ship ship1-container" draggable="true">
+            <div id="ship1-0">
+                <span id="circ"></span>
+            </div>
+        </div>
+        <div class="ship ship2-container" draggable="true">
+            <div id="ship2-0">
+                <span id="circ"></span>
+            </div>
+            <div id="ship2-1"> <span id="circ"></span> </div>
+        </div>
+        <div class="ship ship3-container" draggable="true">
+            <div id="ship3-0"><span id="circ"></span></div>
+            <div id="ship3-1"><span id="circ"></span></div>
+            <div id="ship3-2"><span id="circ"></span></div>
+        </div>
+        <div class="ship ship4-container" draggable="true">
+            <div id="ship4-0"><span id="circ"></span></div>
+            <div id="ship4-1"><span id="circ"></span></div>
+            <div id="ship4-2"><span id="circ"></span></div>
+            <div id="ship4-3"><span id="circ"></span></div>
+        </div>
+        <div class="ship ship5-container" draggable="true">
+            <div id="ship5-0"><span id="circ"></span></div>
+            <div id="ship5-1"><span id="circ"></span></div>
+            <div id="ship5-2"><span id="circ"></span></div>
+            <div id="ship5-3"><span id="circ"></span></div>
+            <div id="ship5-4"><span id="circ"></span></div>
+        </div>
+    </div>
+    
+    <p>
+        Place on board, then start game.
+    </p>
+    <h3 id="turn" class="displayedText">P1 Turn</h3>
+    <h3 id="placeholder" class="displayedText"></h3>
 
-    p {
-        font: 1.5rem sans-serif;
-        margin: 1vmin 5vmin;
-    }
+    
+</body>
 
-    #content {
-        background-color: white;
-        margin: 10vmin;
-        height: 80vmin;
-        width: 80vmin;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 2vmin;
-        justify-items: stretch;
-        align-items: stretch;
-        justify-content: center;
-        align-content: center;
-    }
 
-    .square {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: black;
-        color: white;
-        font: 5vmin sans-serif;
-    }
 
-    .reset {
-        margin: 5vh 0 10vh;
-    }
-</style>
+<script src="Script.js"></script>
+<script src="CreateShip.js"></script>
+<script src="drag.js"></script>
+<script src="board.js"></script>
+<script src="battleshipprototype.js"></script>
 
-<h1>Tic Tac Toe</h1>
-<div id="content">
-</div>
-<p>
-    X goes first. Click on a square to start playing.
-</p>
-<button class="reset"> Click to reset. </button>
+</html>
