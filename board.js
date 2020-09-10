@@ -127,11 +127,26 @@ function dragDrop() {
 
 function checkTaken(elem, pointerIndex) {
     let complete = false;
-    let a = pSquares[parseInt(elem.dataset.id) - pointerIndex].classList.contains('taken');
-    let b = pSquares[parseInt(elem.dataset.id) - pointerIndex + 1].classList.contains('taken');
-    let c = pSquares[parseInt(elem.dataset.id) - pointerIndex + 2].classList.contains('taken');
-    let d = pSquares[parseInt(elem.dataset.id) - pointerIndex + 3].classList.contains('taken');
-    let e = pSquares[parseInt(elem.dataset.id) - pointerIndex + 4].classList.contains('taken');
+    let a;
+    let b;
+    let c;
+    let d;
+    let e;
+    if(hori) {
+        a = pSquares[parseInt(elem.dataset.id) - pointerIndex].classList.contains('taken');
+        b = pSquares[parseInt(elem.dataset.id) - pointerIndex + 1].classList.contains('taken');
+        c = pSquares[parseInt(elem.dataset.id) - pointerIndex + 2].classList.contains('taken');
+        d = pSquares[parseInt(elem.dataset.id) - pointerIndex + 3].classList.contains('taken');
+        e = pSquares[parseInt(elem.dataset.id) - pointerIndex + 4].classList.contains('taken');
+    }
+    if(!hori) {
+        a = pSquares[parseInt(elem.dataset.id) - pointerIndex].classList.contains('taken');
+        b = pSquares[parseInt(elem.dataset.id) - pointerIndex + 9].classList.contains('taken');
+        c = pSquares[parseInt(elem.dataset.id) - pointerIndex + 18].classList.contains('taken');
+        d = pSquares[parseInt(elem.dataset.id) - pointerIndex + 27].classList.contains('taken');
+        e = pSquares[parseInt(elem.dataset.id) - pointerIndex + 36].classList.contains('taken');
+    }
+    
     switch (draggedShipLength) {
         case 1:
             complete = a;
