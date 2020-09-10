@@ -1,0 +1,279 @@
+    body {
+        background-color: rgb(51, 216, 194);
+        display: grid;
+        justify-items: center;
+        color: white;
+    }
+
+    h1 {
+        margin: 1vmin 0;
+        font: 2rem sans-serif;
+    }
+
+    p {
+        font: 1.5vmin sans-serif;
+        margin: 1vmin 5vmin;
+    }
+    #view {
+        background-color: rgb(51, 216, 194);
+        height: 42vmin;
+        width: 90vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        justify-items: center;
+        color: white;
+    }
+    #content {
+        background-color: white;
+        margin: 0.5vmin;
+        height: 40vmin;
+        width: 40vmin;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 0.5vmin;
+        justify-items: stretch;
+        align-items: stretch;
+        justify-content: right;
+        align-content: right;
+    }
+
+    #ocean {
+        background-color: white;
+        
+        margin: 0.5vmin;
+        height: 40vmin;
+        width: 40vmin;
+        
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 0.5vmin;
+        justify-items: stretch;
+        align-items: stretch;
+        justify-content: start;
+        align-content: start;
+    }
+
+    #whoseboard {
+        background-color: rgb(51, 216, 194);
+        height: 6vmin;
+        width: 90vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        justify-items: center;
+        color: white;
+        font: 5vmin sans-serif;
+    }
+
+    .label {
+        background-color: rgb(77, 1, 255);
+        height: 2.5vmin;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        color: black;
+        font: 2vmin sans-serif;
+    }
+
+    
+
+    .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(37, 124, 255);
+        color: red;
+        font: 3vmin sans-serif;
+        
+    }
+
+    .hitit {
+        height: 1.5vmin;
+        width: 1.5vmin;
+        background-color: red;
+        border-radius: 50%;
+        display: inline-block;
+        
+    }
+
+    .missme {
+        height: 1.5vmin;
+        width: 1.5vmin;
+        background-color: gray;
+        border-radius: 50%;
+        display: inline-block;
+        
+    }
+
+    #base {
+        background-color: rgb(51, 216, 194);
+        margin: 0.5vmin;
+        height: 30vmin;
+        width: 30vmin;
+        
+        display: grid;
+        
+    }
+
+    #baseVert {
+        background-color: rgb(51, 216, 194);
+        margin: 0.5vmin;
+        height: 30vmin;
+        width: 30vmin;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        display: grid;
+        
+    }
+
+    #circ {
+        height: 1.5vmin;
+        width: 1.5vmin;
+        background-color: black;
+        border-radius: 60%;
+        display: flex;
+    }
+
+    .ship1-container {
+        background-color: gray;
+        color: gray;
+        height: 4vmin;
+        width: 4vmin;
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+    
+
+    .ship2-container {
+        background-color: yellow;
+        
+        height: 4vmin;
+        width: 8vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+    }
+
+    .ship3-container {
+        background-color: green;
+        
+        height: 4vmin;
+        width: 12.5vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .ship4-container {
+        background-color: purple;
+        
+        height: 4vmin;
+        width: 17vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .ship5-container {
+        background-color: rgb(145, 108, 108);
+        
+        height: 4vmin;
+        width: 21vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    
+
+    .ship div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 3vmin sans-serif;
+        
+    }
+
+    .ship1 {
+        background-color: gray;
+    }
+
+    .ship2 {
+        background-color: yellow;
+    }
+
+    .ship3 {
+        background-color: green;
+    }
+
+    .ship4 {
+        background-color: purple;
+    }
+
+    .ship5 {
+        background-color: rgb(145, 108, 108);
+    }
+
+    
+
+    .circle {
+        height: 1.5vmin;
+        width: 1.5vmin;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+
+    .reset {
+        
+        font-size: 1.5vmin sans-serif;
+        background-color: hsl(115, 63%, 51%);
+        height: 6vmin;
+        width: 15vmin;
+        padding: .5em 1em;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: .2em;
+        color: #333;
+    }
+
+    .buttons {
+        background-color: rgb(51, 216, 194);
+        height: 6vmin;
+        width: 20vmin;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        justify-items: center;
+        color: white;
+        font: 5vmin sans-serif;
+    }
+
+    .btns {
+        font-size: 1.5vmin sans-serif;
+        background-color: hsl(115, 63%, 51%);
+        height: 5vmin;
+        width: 15vmin;
+        padding: .5em 1em;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: .2em;
+        color: #333;
+    }
+
+
+    .displayedText {
+        margin: 2rem;
+    }
+
+
