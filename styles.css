@@ -298,6 +298,7 @@
         height: 6vmin;
         width: 20vmin;
         display: grid;
+        margin: 1vmin;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         justify-content: center;

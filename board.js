@@ -2,7 +2,7 @@ let shipById;
 let draggedShip;
 let draggedShipLength;
 
-const ships = document.querySelectorAll('.ship');
+let ships = document.querySelectorAll('.ship');
 
 ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
     shipById = event.target.id;
@@ -60,7 +60,7 @@ function setupShips(parent) {
 
         }
     }
-    const ships = document.querySelectorAll('.ship');
+    ships = document.querySelectorAll('.ship');
 
     ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
         shipById = event.target.id;
@@ -88,6 +88,28 @@ function startDrag(ev) {
     ev.dataTransfer.dropEffect = "move";
 }
 
+function shipNameLastIndex() {
+    return draggedShip.lastElementChild.id;
+}
+
+function nameOfShip() {
+    let s = shipNameLastIndex();
+    return s.slice(0, -2);
+}
+
+function lastIndexOfShip() {
+    let s = shipNameLastIndex();
+    return parseInt(s.substr(-1));
+}
+
+function lastId(elem) {
+    return lastIndexOfShip() + parseInt(elem.dataset.id) - selectedShip();
+}
+
+function selectedShip() {
+    return parseInt(shipById.substr(-1));
+}
+
 function dragDrop() {
     let shipNameWithLastId = draggedShip.lastElementChild.id;
 
@@ -95,11 +117,11 @@ function dragDrop() {
     shipClass = shipNameWithLastId.slice(0, -2);
 
     let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
-    
+
     let shipLastId = lastShipIndex + parseInt(this.dataset.id);
-   
+
     let isTaken = pSquares[parseInt(this.dataset.id)].classList.contains('taken');
- 
+
     let selectedShipIndex = parseInt(shipById.substr(-1));
     shipLastId = shipLastId - selectedShipIndex;
 
@@ -161,7 +183,7 @@ function checkTaken(elem, pointerIndex) {
             complete = (a || b || c || d);
             break;
         case 5:
-            complete = (a || b || c || d);
+            complete = (a || b || c || d || e);
             break;
     }
     return complete;

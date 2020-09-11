@@ -2,11 +2,12 @@ let pSquares = [];
 let oSquares = [];
 let started = false;
 let hori = true;
+let base;
 
 document.addEventListener('DOMContentLoaded', () => {
     let content = document.getElementById('content');
     let ocean = document.getElementById('ocean');
-    let base = document.getElementById('base');
+    base = document.getElementById('base');
     setup(content, markSquare, oSquares);
     setup(ocean, markShip, pSquares);
     let resetButton = document.querySelector('.reset');
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resetButton.addEventListener('click', () => {
         if(started) {
             base.id = 'base';
+            hori = true;
             breakdown(content);
             setup(content, markSquare, oSquares);
             breakdown(ocean);
@@ -40,7 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startButton.addEventListener('click', () => {
         console.log('start');
-        started = true;
+        started = base.childElementCount == 0;
+        if (!(started)) {
+            alert('place all the ships first!');
+        }
     });
 });
 
