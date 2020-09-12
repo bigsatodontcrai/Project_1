@@ -1,9 +1,3 @@
-let pSquares = [];
-let oSquares = [];
-let started = false;
-let hori = true;
-let base;
-
 document.addEventListener('DOMContentLoaded', () => {
     let content = document.getElementById('content');
     let ocean = document.getElementById('ocean');
