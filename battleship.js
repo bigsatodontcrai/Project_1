@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(started) {
             base.id = 'base';
             hori = true;
+            started = false;
             breakdown(content);
             setup(content, markSquare, oSquares);
             breakdown(ocean);
