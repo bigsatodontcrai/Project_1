@@ -1,5 +1,5 @@
     body {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         display: grid;
         justify-items: center;
         color: white;
@@ -15,7 +15,7 @@
         margin: 1vmin 5vmin;
     }
     #view {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         height: 42vmin;
         width: 90vmin;
         display: grid;
@@ -26,7 +26,7 @@
         color: white;
     }
     #content {
-        background-color: rgb(78, 161, 199);
+        background-color: white;
         margin: 0.5vmin;
         height: 40vmin;
         width: 40vmin;
@@ -42,7 +42,7 @@
     }
 
     #ocean {
-        background-color: rgb(78, 161, 199);
+        background-color: white;
         
         margin: 0.5vmin;
         height: 40vmin;
@@ -60,7 +60,7 @@
     }
 
     #whoseboard {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         height: 6vmin;
         width: 90vmin;
         display: grid;
@@ -85,11 +85,10 @@
     
 
     .square {
-        border: 1px solid rgba(17, 0, 255, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(37, 124, 255);
         color: red;
         font: 3vmin sans-serif;
         
@@ -114,7 +113,7 @@
     }
 
     #base {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         margin: 0.5vmin;
         height: 30vmin;
         width: 30vmin;
@@ -124,7 +123,7 @@
     }
 
     #base-vert {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         margin: 0.5vmin;
         height: 30vmin;
         width: 30vmin;
@@ -143,7 +142,7 @@
 
     .ship1-container {
         background-color: gray;
-        border-radius: 2.5vmin;
+        color: gray;
         height: 4vmin;
         width: 4vmin;
         display: grid;
@@ -154,7 +153,7 @@
 
     .ship2-container {
         background-color: yellow;
-        border-radius: 2.5vmin;
+        
         height: 4vmin;
         width: 8vmin;
         display: grid;
@@ -164,7 +163,7 @@
 
     .ship3-container {
         background-color: green;
-        border-radius: 2.5vmin;
+        
         height: 4vmin;
         width: 12.5vmin;
         display: grid;
@@ -173,7 +172,7 @@
 
     .ship4-container {
         background-color: purple;
-        border-radius: 2.5vmin;
+        
         height: 4vmin;
         width: 17vmin;
         display: grid;
@@ -182,7 +181,7 @@
 
     .ship5-container {
         background-color: rgb(145, 108, 108);
-        border-radius: 2.5vmin;
+        
         height: 4vmin;
         width: 21vmin;
         display: grid;
@@ -191,7 +190,6 @@
 
     .ship1-container-vert {
         background-color: gray;
-        border-radius: 2.5vmin;
         color: gray;
         height: 4vmin;
         width: 4vmin;
@@ -204,7 +202,7 @@
 
     .ship2-container-vert {
         background-color: yellow;
-        border-radius: 2.5vmin;
+        
         height: 8vmin;
         width: 4vmin;
         display: grid;
@@ -214,7 +212,7 @@
 
     .ship3-container-vert {
         background-color: green;
-        border-radius: 2.5vmin;
+        
         height: 12.5vmin;
         width: 4vmin;
         display: grid;
@@ -223,7 +221,7 @@
 
     .ship4-container-vert {
         background-color: purple;
-        border-radius: 2.5vmin;
+        
         height: 17vmin;
         width: 4vmin;
         display: grid;
@@ -232,7 +230,7 @@
 
     .ship5-container-vert {
         background-color: rgb(145, 108, 108);
-        border-radius: 2.5vmin;
+        
         height: 21vmin;
         width: 4vmin;
         display: grid;
@@ -283,22 +281,8 @@
     .reset {
         
         font-size: 1.5vmin sans-serif;
-        background-color: hsl(29, 100%, 50%);
-        height: 5vmin;
-        width: 10vmin;
-        padding: .5em 1em;
-        outline: none;
-        border: none;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: .2em;
-        color: #333;
-    }
-    
-    .playerButtons {
-        font-size: 1.5vmin sans-serif;
         background-color: hsl(115, 63%, 51%);
-        height: 4vmin;
+        height: 6vmin;
         width: 15vmin;
         padding: .5em 1em;
         outline: none;
@@ -310,10 +294,11 @@
     }
 
     .buttons {
-        background-color: rgb(78, 161, 199);
+        background-color: rgb(51, 216, 194);
         height: 6vmin;
         width: 20vmin;
         display: grid;
+        margin: 1vmin;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         justify-content: center;
@@ -326,7 +311,7 @@
         font-size: 1.5vmin sans-serif;
         background-color: hsl(115, 63%, 51%);
         height: 5vmin;
-        width: 8vmin;
+        width: 15vmin;
         padding: .5em 1em;
         outline: none;
         border: none;
@@ -342,22 +327,3 @@
     }
 
 
-    .taken.start.vertical {
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-    }
-    
-    .taken.end.vertical {
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
-    
-    .taken.start.horizontal {
-        border-top-left-radius: 50%;
-        border-bottom-left-radius: 50%;
-    }
-    
-    .taken.end.horizontal {
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
-    }
