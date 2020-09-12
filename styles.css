@@ -149,13 +149,14 @@
         width: 4vmin;
         display: grid;
         grid-template-columns: 1fr;
+        border-radius: 2.5vmin;
         
     }
     
 
     .ship2-container {
         background-color: yellow;
-        
+        border-radius: 2.5vmin;
         height: 4vmin;
         width: 8vmin;
         display: grid;
@@ -165,7 +166,7 @@
 
     .ship3-container {
         background-color: green;
-        
+        border-radius: 2.5vmin;
         height: 4vmin;
         width: 12.5vmin;
         display: grid;
@@ -174,7 +175,7 @@
 
     .ship4-container {
         background-color: purple;
-        
+        border-radius: 2.5vmin;
         height: 4vmin;
         width: 17vmin;
         display: grid;
@@ -183,7 +184,7 @@
 
     .ship5-container {
         background-color: rgb(145, 108, 108);
-        
+        border-radius: 2.5vmin;
         height: 4vmin;
         width: 21vmin;
         display: grid;
@@ -197,6 +198,7 @@
         width: 4vmin;
         display: grid;
         grid-template-columns: 1fr;
+        border-radius: 2.5vmin;
         
     }
 
@@ -204,7 +206,7 @@
 
     .ship2-container-vert {
         background-color: yellow;
-        
+        border-radius: 2.5vmin;
         height: 8vmin;
         width: 4vmin;
         display: grid;
@@ -214,7 +216,7 @@
 
     .ship3-container-vert {
         background-color: green;
-        
+        border-radius: 2.5vmin;
         height: 12.5vmin;
         width: 4vmin;
         display: grid;
@@ -223,7 +225,7 @@
 
     .ship4-container-vert {
         background-color: purple;
-        
+        border-radius: 2.5vmin;
         height: 17vmin;
         width: 4vmin;
         display: grid;
@@ -232,7 +234,7 @@
 
     .ship5-container-vert {
         background-color: rgb(145, 108, 108);
-        
+        border-radius: 2.5vmin;
         height: 21vmin;
         width: 4vmin;
         display: grid;
@@ -333,4 +335,22 @@
         width: 15vmin;
     }
 
-
+    .taken.start.vertical {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+    }
+    
+    .taken.end.vertical {
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+    
+    .taken.start.horizontal {
+        border-top-left-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+    
+    .taken.end.horizontal {
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }

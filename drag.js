@@ -33,13 +33,21 @@ function dragDrop() {
 
         if (!(isTaken) && hori && !newNotHori.includes(shipLastId)) {
             for (let i = 0; i < draggedShipLength; i++) {
-                pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'horizontal', shipClass);
+                let shipDirectionCurrent
+
+                if (i === 0) shipDirectionCurrent = 'start';
+                if (i === draggedShipLength - 1) shipDirectionCurrent = 'end';
+                pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'horizontal', shipDirectionCurrent, shipClass);
                 pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].dataset.start = parseInt(this.dataset.id - selectedShipIndex);
             }
         }
         else if (!(isTaken) && !(hori) && !newNotVert.includes(shipLastId)) {
             for (let i = 0; i < draggedShipLength; i++) {
-                pSquares[9 * i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'vertical', shipClass);
+                let shipDirectionCurrent
+
+                if (i === 0) shipDirectionCurrent = 'start'
+                if (i === draggedShipLength - 1) shipDirectionCurrent = 'end'
+                pSquares[9 * i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'vertical', shipDirectionCurrent,shipClass);
                 pSquares[9 * i + parseInt(this.dataset.id) - selectedShipIndex].dataset.start = parseInt(this.dataset.id - selectedShipIndex);
             }
         }
