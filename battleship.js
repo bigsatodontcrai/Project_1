@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             base.id = 'base';
             hori = true;
             started = false;
+            num2 = 0;
             breakdown(content);
             breakdown(ocean);
             pSquares = [];
