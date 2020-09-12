@@ -3,6 +3,8 @@ let draggedShip;
 let draggedShipLength;
 
 let ships = document.querySelectorAll('.ship');
+let selected = false;
+let num2 = 0;
 
 ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
     shipById = event.target.id;
@@ -12,6 +14,8 @@ ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
 ships.forEach(ship => ship.addEventListener('dragstart', startDrag));
 
 ships.forEach(ship => ship.setAttribute('draggable', 'true'));
+
+
 
 function setup(parent, mark, Squares) {
     let elem;
@@ -76,8 +80,6 @@ function setupShips(parent) {
 function breakdown(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
-        pSquares = [];
-        oSquares = [];
     }
 }
 
@@ -111,39 +113,47 @@ function selectedShip() {
 }
 
 function dragDrop() {
-    let shipNameWithLastId = draggedShip.lastElementChild.id;
+    if(num2 != 0) {
+        let shipNameWithLastId = draggedShip.lastElementChild.id;
 
-    let shipClass;
-    shipClass = shipNameWithLastId.slice(0, -2);
+        let shipClass;
+        shipClass = shipNameWithLastId.slice(0, -2);
 
-    let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
+        let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
 
-    let shipLastId = lastShipIndex + parseInt(this.dataset.id);
+        let shipLastId = lastShipIndex + parseInt(this.dataset.id);
 
-    let isTaken = pSquares[parseInt(this.dataset.id)].classList.contains('taken');
+        let isTaken = pSquares[parseInt(this.dataset.id)].classList.contains('taken');
 
-    let selectedShipIndex = parseInt(shipById.substr(-1));
-    shipLastId = shipLastId - selectedShipIndex;
+        let selectedShipIndex = parseInt(shipById.substr(-1));
+        shipLastId = shipLastId - selectedShipIndex;
+
+        const notWrapHori = [0, 9, 18, 27, 36, 45, 54, 63, 72, 1, 10, 19, 28, 37, 46, 55, 64, 73, 2, 11, 20, 29, 38, 47, 56, 65, 74];
+        let newNotHori = notWrapHori.splice(0, 9 * lastShipIndex)
+
+        const notWrapVert = [80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45]
+        let newNotVert = notWrapVert.splice(0, 9 * lastShipIndex)
 
 
-    isTaken = checkTaken(this, selectedShipIndex);
-    console.log(isTaken);
+        isTaken = checkTaken(this, selectedShipIndex);
+        console.log(isTaken);
 
-    if(!(isTaken) && hori) {
-        for (let i = 0; i < draggedShipLength; i++) {
-            pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', shipClass);
-            
+        if (!(isTaken) && hori && !newNotHori.includes(shipLastId)) {
+            for (let i = 0; i < draggedShipLength; i++) {
+                pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'horizontal', shipClass);
+                pSquares[i + parseInt(this.dataset.id) - selectedShipIndex].dataset.start = parseInt(this.dataset.id - selectedShipIndex);
+            }
+        }
+        else if (!(isTaken) && !(hori) && !newNotVert.includes(shipLastId)) {
+            for (let i = 0; i < draggedShipLength; i++) {
+                pSquares[9 * i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', 'vertical', shipClass);
+                pSquares[9 * i + parseInt(this.dataset.id) - selectedShipIndex].dataset.start = parseInt(this.dataset.id - selectedShipIndex);
+            }
+        }
+        if (!isTaken && (!newNotHori.includes(shipLastId) || !newNotVert.includes(shipLastId))) {
+            base.removeChild(draggedShip);
         }
     }
-    else if(!(isTaken) && !(hori)) {
-        for (let i = 0; i < draggedShipLength; i++) {
-            pSquares[9*i + parseInt(this.dataset.id) - selectedShipIndex].classList.add('taken', shipClass);
-        }
-    }
-    if(!isTaken) {
-        base.removeChild(draggedShip);
-    }
-    
     
 }
 
@@ -205,5 +215,24 @@ function moveOver(ev) {
 
 function moveEnter(ev) {
     ev.preventDefault();
+
+}
+
+function resetAsk(chooseBar) {
+    let noship = document.createElement('button');
+    noship.id = 'Noship';
+    noship.className = 'btns';
+    noship.innerText = 'Number:';
+    chooseBar.append(noship);
+    let numShips = document.createElement('input');
+    numShips.id = 'numShips';
+    numShips.type = 'number';
+    chooseBar.append(numShips);
+    let okbtn = document.createElement('button');
+    okbtn.className = 'btns';
+    okbtn.id = 'ok';
+    okbtn.innerText = 'ok';
+    chooseBar.append(okbtn);
+
 
 }

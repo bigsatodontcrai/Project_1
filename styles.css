@@ -1,5 +1,5 @@
     body {
-        background-color: rgb(51, 216, 194);
+        background-color: rgb(78, 161, 199);
         display: grid;
         justify-items: center;
         color: white;
@@ -10,14 +10,16 @@
         font: 2rem sans-serif;
     }
 
+
     p {
         font: 1.5vmin sans-serif;
         margin: 1vmin 5vmin;
     }
     #view {
-        background-color: rgb(51, 216, 194);
-        height: 42vmin;
+        background-color: rgb(78, 161, 199);
+        height: 45vmin;
         width: 90vmin;
+        margin: 2vmin;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
@@ -26,10 +28,10 @@
         color: white;
     }
     #content {
-        background-color: white;
+        background-color: rgb(78, 161, 199);
         margin: 0.5vmin;
-        height: 40vmin;
-        width: 40vmin;
+        height: 42vmin;
+        width: 42vmin;
         
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -42,11 +44,11 @@
     }
 
     #ocean {
-        background-color: white;
+        background-color: rgb(78, 161, 199);
         
         margin: 0.5vmin;
-        height: 40vmin;
-        width: 40vmin;
+        height: 42vmin;
+        width: 42vmin;
         
         
         display: grid;
@@ -60,7 +62,7 @@
     }
 
     #whoseboard {
-        background-color: rgb(51, 216, 194);
+        background-color: rgb(78, 161, 199);
         height: 6vmin;
         width: 90vmin;
         display: grid;
@@ -113,7 +115,7 @@
     }
 
     #base {
-        background-color: rgb(51, 216, 194);
+        background-color: rgb(78, 161, 199);
         margin: 0.5vmin;
         height: 30vmin;
         width: 30vmin;
@@ -123,7 +125,7 @@
     }
 
     #base-vert {
-        background-color: rgb(51, 216, 194);
+        background-color: rgb(78, 161, 199);
         margin: 0.5vmin;
         height: 30vmin;
         width: 30vmin;
@@ -282,34 +284,6 @@
         
         font-size: 1.5vmin sans-serif;
         background-color: hsl(115, 63%, 51%);
-        height: 6vmin;
-        width: 15vmin;
-        padding: .5em 1em;
-        outline: none;
-        border: none;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: .2em;
-        color: #333;
-    }
-
-    .buttons {
-        background-color: rgb(51, 216, 194);
-        height: 6vmin;
-        width: 20vmin;
-        display: grid;
-        margin: 1vmin;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-        justify-content: center;
-        justify-items: center;
-        color: white;
-        font: 5vmin sans-serif;
-    }
-
-    .btns {
-        font-size: 1.5vmin sans-serif;
-        background-color: hsl(115, 63%, 51%);
         height: 5vmin;
         width: 15vmin;
         padding: .5em 1em;
@@ -321,9 +295,42 @@
         color: #333;
     }
 
+    .buttons {
+        background-color: rgb(78, 161, 199);
+        height: 3vmin;
+        width: 68vmin;
+        display: grid;
+        margin: 0.5vmin;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        justify-content: center;
+        justify-items: center;
+        color: white;
+        font: 5vmin sans-serif;
+    }
+
+    .btns {
+        font-size: 0.3vmin sans-serif;
+        background-color: hsl(115, 63%, 51%);
+        height: 3vmin;
+        width: 15vmin;
+        padding: .3em 1em;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: .2em;
+        color: #333;
+    }
+
 
     .displayedText {
         margin: 2rem;
+    }
+
+    #numShips {
+        height: 3vmin;
+        width: 15vmin;
     }
 
 

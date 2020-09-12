@@ -10,19 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
     base = document.getElementById('base');
     setup(content, markSquare, oSquares);
     setup(ocean, markShip, pSquares);
-    let resetButton = document.querySelector('.reset');
+    let resetButton = document.querySelector('#reset');
     let startButton = document.getElementById('start');
     let rotateButton = document.getElementById('rotate');
+    let done = document.getElementById('choose');
     resetButton.addEventListener('click', () => {
         if(started) {
             base.id = 'base';
             hori = true;
             started = false;
             breakdown(content);
-            setup(content, markSquare, oSquares);
             breakdown(ocean);
+            pSquares = [];
+            oSquares = [];
+            setup(content, markSquare, oSquares);
             setup(ocean, markShip, pSquares);
             setupShips(base);
+            resetAsk(done);
+        }
+        else {
+            alert('Can reset once started.');
         }
     });
     
@@ -45,8 +52,35 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('start');
         started = base.childElementCount == 0;
         if (!(started)) {
-            alert('place all the ships first!');
+            alert('Place all the ships first!');
+        } else {
+            alert('Game has started!');
         }
     });
+
+    let input1 = document.querySelector('#numShips');
+    const shipselectclick = document.querySelector('#ok')
+
+    shipselectclick.addEventListener('click', () => {
+        let num1 = parseInt(input1.value);
+        num2 = num1;
+        if(!isNaN(num1) && (num1 > 5 || num1 < 1)) {
+            alert('There are only five ships! Try again.');
+        }
+        else if (!isNaN(num1) && selected == false) {
+            shipchoosing(num1);
+            breakdown(done);
+            selected = true;
+            alert('You have chosen ' + num1 + ' ships.');
+        } else if(selected == true) {
+            alert('You already selected a number!');
+            alert('Note: reset only works if ships have been placed');
+        } else {
+            alert('Please enter a valid value!');
+        }
+    })
+
 });
+
+
 

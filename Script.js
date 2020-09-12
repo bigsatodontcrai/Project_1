@@ -1,4 +1,4 @@
-
+let sinkCounter = 0;
 
 function markSquare(element) {
 
@@ -6,20 +6,10 @@ function markSquare(element) {
     {
         if(started) {
             if (element.firstChild.className == 'hitit') {
+                element.firstChild.className = 'missme';
 
-                let miss;
-                miss = document.createElement('span');
-                miss.className = 'missme';
-                element.removeChild(element.firstChild);
-                element.append(miss);
-
-            }
-            else {
-                let hit;
-                hit = document.createElement('span');
-                hit.className = 'hitit';
-                element.removeChild(element.firstChild);
-                element.append(hit);
+            } else {
+                element.firstChild.className = 'hitit';
 
             }
         }
@@ -42,39 +32,70 @@ function markShip(square) {
     return () => {
         if(started) {
             if (square.classList.contains('taken')) {
-
-                let hit;
-                hit = document.createElement('span');
-                hit.className = 'hitit';
-                square.removeChild(square.firstChild);
-                square.append(hit);
-
-            }
-            else {
-                let miss;
-                miss = document.createElement('span');
-                miss.className = 'missme';
-                square.removeChild(square.firstChild);
-                square.append(miss);
-
+                square.firstChild.className = 'hitit';
+                if(sinking(square)) {
+                    alert('Ship of size ' + square.className.substr(-1) + ' has sunk!');
+                }
+                if(gameCheck()){
+                    alert('Game over! All your ships have sunk!');
+                    alert('You can click reset to try again.');
+                }
+            } else {
+                square.firstChild.className = 'missme';
             }
         }
         
     }
 }
-/*
-for rotate, switch class names between vert and hori, or do the same toggle as Brian's code
-but also, switch the base from base to base-vert so that the container can stay the same relatively speaking
-*/
 
 function gameCheck() {
-
+    if(sinkCounter == num2) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-function sinking() {
+function whichHit(elem) {
+    return elem.className;
+}
 
+function sinking(elem) {
+    let isSink = false;
+    whichShip = whichHit(elem);
+    loopNum = parseInt(whichShip.substr(-1));
+    firstLoc = document.querySelector(whichShip);
+    firstNum = parseInt(elem.dataset.start);
+    let check = new Array(true, true, true, true, true);
+    for(let i = 0; i < 5; i++) {
+        if(i < loopNum) {
+            check[i] = false;
+        }
+    }
+    if(elem.classList.contains('horizontal')) {
+        for(let i = 0; i < loopNum; i++) {
+            check[i] = (pSquares[firstNum + i].firstChild.className == 'hitit');
+        }
+    } else {
+        for (let i = 0; i < loopNum; i++) {
+            check[i] = (pSquares[firstNum + 9*i].firstChild.className == 'hitit');
+
+        }
+    }
+    isSink = check[0] && check[1] && check[2] && check[3] && check[4];
+    if(isSink == true) {
+        sinkCounter++;
+    }
+    return isSink;
 }
 
 function setShipNumber() {
 
+}
+
+function shipchoosing(num1) {
+    for (let i = 0; i < (5 - num1); i++) {
+        base.removeChild(base.lastElementChild);
+    }
 }
