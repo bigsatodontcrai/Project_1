@@ -29,7 +29,7 @@ function destroy(element) {
 function markShip(square) {
     return () => {
         if(started) {
-            if (square.classList.contains('taken')) {
+            if (square.classList.contains('taken') && square.firstChild.className != 'hitit') {
                 square.firstChild.className = 'hitit';
                 if(sinking(square)) {
                     alert('Ship of size ' + square.className.substr(-1) + ' has sunk!');
@@ -38,6 +38,8 @@ function markShip(square) {
                     alert('Game over! All your ships have sunk!');
                     alert('You can click reset to try again.');
                 }
+            } else if(square.firstChild.className == 'hitit') {
+                alert('Ship has already been hit at this location.');
             } else {
                 square.firstChild.className = 'missme';
             }
