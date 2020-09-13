@@ -67,7 +67,6 @@ function dragDrop() {
 }
 
 function checkTaken(elem, pointerIndex) {
-    let complete = false;
     let check = new Array(false, false, false, false, false);
 
     if (hori) {
@@ -86,25 +85,7 @@ function checkTaken(elem, pointerIndex) {
             
         }
     }
-
-    switch (draggedShipLength) {
-        case 1:
-            complete = check[0];
-            break;
-        case 2:
-            complete = (check[0]|| check[1]);
-            break;
-        case 3:
-            complete = (check[0] || check[1] || check[2]);
-            break;
-        case 4:
-            complete = (check[0] || check[1] || check[2] || check[3]);
-            break;
-        case 5:
-            complete = (check[0] || check[1] || check[2] || check[3] || check[4]);
-            break;
-    }
-    return (complete);
+    return (check[0] || check[1] || check[2] || check[3] || check[4]);
 }
 
 
