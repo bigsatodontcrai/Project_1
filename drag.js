@@ -84,10 +84,6 @@ function dragover_handler(ev) {
     ev.preventDefault();
 }
 
-function dragLeave() {
-
-}
-
 function moveOver(ev) {
     ev.preventDefault();
 }
