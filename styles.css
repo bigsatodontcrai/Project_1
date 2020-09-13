@@ -15,13 +15,24 @@
         font: 1.5vmin sans-serif;
         margin: 1vmin 5vmin;
     }
+    #columns1{
+      text-align: center;
+      letter-spacing: 3.5vmin;
+      font: 1.7vmin sans-serif;
+      margin: 0.5vmin 0vmin 0vmin 3.0vmin;
+    }
+    #rows1{
+      font: 1.7vmin sans-serif;
+      line-height: 4.8vmin;
+      margin-left: 0.5vmin;
+    }
     #view {
         background-color: rgb(78, 161, 199);
         height: 45vmin;
         width: 90vmin;
         margin: 2vmin;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         justify-content: center;
         justify-items: center;
@@ -32,7 +43,7 @@
         margin: 0.5vmin;
         height: 42vmin;
         width: 42vmin;
-        
+
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -45,12 +56,12 @@
 
     #ocean {
         background-color: rgb(78, 161, 199);
-        
+
         margin: 0.5vmin;
         height: 42vmin;
         width: 42vmin;
-        
-        
+
+
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -84,7 +95,7 @@
         font: 2vmin sans-serif;
     }
 
-    
+
 
     .square {
         border: 1px solid rgba(17, 0, 255, 0.2);
@@ -94,7 +105,7 @@
         background-color: rgb(78, 161, 199);
         color: red;
         font: 3vmin sans-serif;
-        
+
     }
 
     .hitit {
@@ -103,7 +114,7 @@
         background-color: red;
         border-radius: 50%;
         display: inline-block;
-        
+
     }
 
     .missme {
@@ -112,7 +123,7 @@
         background-color: gray;
         border-radius: 50%;
         display: inline-block;
-        
+
     }
 
     #base {
@@ -120,9 +131,9 @@
         margin: 0.5vmin;
         height: 30vmin;
         width: 30vmin;
-        
+
         display: grid;
-        
+
     }
 
     #base-vert {
@@ -132,7 +143,7 @@
         width: 30vmin;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         display: grid;
-        
+
     }
 
     #circ {
@@ -151,9 +162,9 @@
         display: grid;
         grid-template-columns: 1fr;
         border-radius: 2.5vmin;
-        
+
     }
-    
+
 
     .ship2-container {
         background-color: yellow;
@@ -162,7 +173,7 @@
         width: 8vmin;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        
+
     }
 
     .ship3-container {
@@ -200,10 +211,10 @@
         display: grid;
         grid-template-columns: 1fr;
         border-radius: 2.5vmin;
-        
+
     }
 
-    
+
 
     .ship2-container-vert {
         background-color: yellow;
@@ -212,7 +223,7 @@
         width: 4vmin;
         display: grid;
         grid-template-rows: 1fr 1fr;
-        
+
     }
 
     .ship3-container-vert {
@@ -242,14 +253,14 @@
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     }
 
-    
+
 
     .ship div {
         display: flex;
         align-items: center;
         justify-content: center;
         font: 3vmin sans-serif;
-        
+
     }
 
     .ship1 {
@@ -272,7 +283,7 @@
         background-color: rgb(145, 108, 108);
     }
 
-    
+
 
     .circle {
         height: 1.5vmin;
@@ -284,7 +295,7 @@
 
 
     .reset {
-        
+
         font-size: 1.5vmin sans-serif;
         background-color: hsl(115, 63%, 51%);
         height: 5vmin;
@@ -340,17 +351,17 @@
         border-top-left-radius: 50%;
         border-top-right-radius: 50%;
     }
-    
+
     .taken.end.vertical {
         border-bottom-left-radius: 50%;
         border-bottom-right-radius: 50%;
     }
-    
+
     .taken.start.horizontal {
         border-top-left-radius: 50%;
         border-bottom-left-radius: 50%;
     }
-    
+
     .taken.end.horizontal {
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
