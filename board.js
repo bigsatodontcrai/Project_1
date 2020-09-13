@@ -15,6 +15,7 @@ function setup(parent, mark, Squares) {
         
         parent.append(elem);
         elem.dataset.id = i;
+        elem.dataset.size = 0;
         Squares.push(elem);
         circ = document.createElement('span');
         circ.className = 'circle';
