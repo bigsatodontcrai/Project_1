@@ -8,29 +8,19 @@ function startDrag(ev) {
 function dragDrop() {
     if (num2 != 0) {
         let shipNameWithLastId = draggedShip.lastElementChild.id;
-
         let shipClass;
         shipClass = shipNameWithLastId.slice(0, -2);
-
         let lastShipIndex = parseInt(shipNameWithLastId.substr(-1));
-
         let shipLastId = lastShipIndex + parseInt(this.dataset.id);
         if(!(hori)) {
             shipLastId = 9 * lastShipIndex + parseInt(this.dataset.id)
         }
-
-        let isTaken = pSquares[parseInt(this.dataset.id)].classList.contains('taken');
-
+        let isTaken = false;
         let selectedShipIndex = parseInt(shipById.substr(-1));
         shipLastId = shipLastId - selectedShipIndex;
-
         const notWrapHori = [0, 9, 18, 27, 36, 45, 54, 63, 72, 1, 10, 19, 28, 37, 46, 55, 64, 73, 2, 11, 20, 29, 38, 47, 56, 65, 74];
         let newNotHori = notWrapHori.splice(0, 9 * lastShipIndex)
-        console.log(shipLastId);
-
-
         isTaken = checkTaken(this, selectedShipIndex);
-        console.log(isTaken);
 
         if (!(isTaken) && hori && !newNotHori.includes(shipLastId)) {
             for (let i = 0; i < draggedShipLength; i++) {
