@@ -52,6 +52,8 @@ function dragDrop() {
         else if(!isTaken) {
             base.removeChild(draggedShip);
         }
+    } else {
+        alert('Enter a number first.');
     }
 
 }
