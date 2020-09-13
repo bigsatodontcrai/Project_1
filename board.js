@@ -65,6 +65,7 @@ function breakdown(parent) {
 }
 
 function resetAsk(chooseBar) {
+    selected = false;
     let noship = document.createElement('button');
     noship.id = 'Noship';
     noship.className = 'btns';
@@ -78,6 +79,8 @@ function resetAsk(chooseBar) {
     okbtn.className = 'btns';
     okbtn.id = 'ok';
     okbtn.innerText = 'ok';
+    let input1 = document.querySelector('#numShips');
+    okbtn.addEventListener('click', setShipNumber(input1, chooseBar));
     chooseBar.append(okbtn);
 
 }

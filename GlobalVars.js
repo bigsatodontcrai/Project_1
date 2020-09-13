@@ -3,6 +3,7 @@ let oSquares = [];
 let started = false;
 let hori = true;
 let base;
+let sinkCounter = 0;
 
 let shipById;
 let draggedShip;

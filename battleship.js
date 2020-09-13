@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             base.id = 'base';
             hori = true;
             started = false;
+            sinkCounter = 0;
             num2 = 0;
             breakdown(content);
             breakdown(ocean);
@@ -56,24 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let input1 = document.querySelector('#numShips');
     const shipselectclick = document.querySelector('#ok')
 
-    shipselectclick.addEventListener('click', () => {
-        let num1 = parseInt(input1.value);
-        num2 = num1;
-        if(!isNaN(num1) && (num1 > 5 || num1 < 1)) {
-            alert('There are only five ships! Try again.');
-        }
-        else if (!isNaN(num1) && selected == false) {
-            shipchoosing(num1);
-            breakdown(done);
-            selected = true;
-            alert('You have chosen ' + num1 + ' ships.');
-        } else if(selected == true) {
-            alert('You already selected a number!');
-            alert('Note: reset only works if ships have been placed');
-        } else {
-            alert('Please enter a valid value!');
-        }
-    })
+    shipselectclick.addEventListener('click', setShipNumber(input1, done));
 
 });
 

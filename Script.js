@@ -1,5 +1,3 @@
-let sinkCounter = 0;
-
 function markSquare(element) {
 
     return () => 
@@ -90,8 +88,25 @@ function sinking(elem) {
     return isSink;
 }
 
-function setShipNumber() {
-
+function setShipNumber(input1, elem) {
+    return () => {
+        let num1 = parseInt(input1.value);
+        num2 = num1;
+        if (!isNaN(num1) && (num1 > 5 || num1 < 1)) {
+            alert('There are only five ships! Try again.');
+        }
+        else if (!isNaN(num1) && selected == false) {
+            shipchoosing(num1);
+            breakdown(elem);
+            selected = true;
+            alert('You have chosen ' + num1 + ' ships.');
+        } else if (selected == true) {
+            alert('You already selected a number!');
+            alert('Note: reset only works if ships have been placed');
+        } else {
+            alert('Please enter a valid value!');
+        }
+    }
 }
 
 function shipchoosing(num1) {
