@@ -1,6 +1,6 @@
 
 /**
- * description of file
+ * @file runs the game of battleship 
  */
 document.addEventListener('DOMContentLoaded', () => {
     let content = document.getElementById('content');

@@ -1,8 +1,11 @@
 /**
- * markSquare - Marks the square on the board if it has been hit (red) or missed (grey)
+*@file contains functions that controls the ships
+*/
+/**
+ * markSquare - Marks the square on the opponent board if it has been hit (red) or missed (grey) when clicked on that square
  *
- * @param  {Object} element description
- * @return {}         description
+ * @param  {Object} element takes in a specific square to
+ * @return {Object}         change the child of that square which normally contains a div with className ‘circle’ to the classname ‘hitit’, specifying the opponent board has a hit, or, on another click, changes it to ‘missme’, specifying the opponent board has a miss
  */
 
 function markSquare(element) {
@@ -24,11 +27,12 @@ function markSquare(element) {
 }
 
 /**
- * destroy - description
+ * destroy - On double click of any square on the opponent board or any piece on the player board that hasn’t been it, the child of the square is reset
  *
- * @param  {Object} element description
- * @return {type}         description
+ * @param  {Object} element the parent object
+ * @return {Object}         replaces the className of the child from ‘hitit’ or ‘missme’ to ‘circle’
  */
+
 
 function destroy(element) {
     return () => {
@@ -43,9 +47,10 @@ function destroy(element) {
 /**
  * markShip - This function marks on the players board if a ship has been hit or not
  *
- * @param  {Object} square description
- * @return {}        description
+ * @param  {Object} square
+ * @return {Object}        replaces the className of the child of square whose class list contains ‘taken’ with ‘hitit’ OR replaces the className of a circle without ‘taken’ to ‘missme’
  */
+
 
 function markShip(square) {
     return () => {
@@ -87,7 +92,7 @@ function gameCheck() {
 /**
  * whichHit - description
  *
- * @param  {Object} elem description
+ * @param  {Object} elem a passed in document object
  * @return {string}      returns the className of the object passed in
  */
 
@@ -98,7 +103,7 @@ function whichHit(elem) {
 /**
  * sinking - Checks if a ship has sunk
  *
- * @param  {Object} elem description
+ * @param  {Object} elem takes in a document object and checks if it has sunk
  * @return {boolean}      returns true if all parts of a ship have been hit
  */
 
@@ -132,12 +137,13 @@ function sinking(elem) {
 }
 
 /**
- * setShipNumber - description
+ * setShipNumber - Sets the number of ships
  *
- * @param  {int} input1 the number of ships chosen by user
- * @param  {Object} elem   description
- * @return {type}        description
+ * @param  {Number} input1 the number of ships chosen by user
+ * @param  {Object} elem   takes in an object which is broken down.
+ * @return {type}        either sends an error message or sets the number of ships to be used globally and breaks down the object that contains ‘number:’ input ‘ok’
  */
+
 
 function setShipNumber(input1, elem) {
     return () => {
@@ -161,11 +167,12 @@ function setShipNumber(input1, elem) {
 }
 
 /**
- * shipchoosing - description
+ * shipchoosing - Changes the base so that only the number of ships is there
  *
- * @param  {int} num1 description
- * @return {void}      description
+ * @param  {number} num1 the number of ships chosen
+ * @return {void}      removes the last element in a loop for (5 - num1)
  */
+
 
 function shipchoosing(num1) {
     for (let i = 0; i < (5 - num1); i++) {

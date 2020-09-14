@@ -27,10 +27,13 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * markSquare - Marks the square on the board if it has been hit (red) or missed (grey)
+*@file contains functions that controls the ships
+*/
+/**
+ * markSquare - Marks the square on the opponent board if it has been hit (red) or missed (grey) when clicked on that square
  *
- * @param  {Object} element description
- * @return {}         description
+ * @param  {Object} element takes in a specific square to
+ * @return {Object}         change the child of that square which normally contains a div with className ‘circle’ to the classname ‘hitit’, specifying the opponent board has a hit, or, on another click, changes it to ‘missme’, specifying the opponent board has a miss
  */
 
 function markSquare(element) {
@@ -52,11 +55,12 @@ function markSquare(element) {
 }
 
 /**
- * destroy - description
+ * destroy - On double click of any square on the opponent board or any piece on the player board that hasn’t been it, the child of the square is reset
  *
- * @param  {Object} element description
- * @return {type}         description
+ * @param  {Object} element the parent object
+ * @return {Object}         replaces the className of the child from ‘hitit’ or ‘missme’ to ‘circle’
  */
+
 
 function destroy(element) {
     return () => {
@@ -71,9 +75,10 @@ function destroy(element) {
 /**
  * markShip - This function marks on the players board if a ship has been hit or not
  *
- * @param  {Object} square description
- * @return {}        description
+ * @param  {Object} square
+ * @return {Object}        replaces the className of the child of square whose class list contains ‘taken’ with ‘hitit’ OR replaces the className of a circle without ‘taken’ to ‘missme’
  */
+
 
 function markShip(square) {
     return () => {
@@ -115,7 +120,7 @@ function gameCheck() {
 /**
  * whichHit - description
  *
- * @param  {Object} elem description
+ * @param  {Object} elem a passed in document object
  * @return {string}      returns the className of the object passed in
  */
 
@@ -126,7 +131,7 @@ function whichHit(elem) {
 /**
  * sinking - Checks if a ship has sunk
  *
- * @param  {Object} elem description
+ * @param  {Object} elem takes in a document object and checks if it has sunk
  * @return {boolean}      returns true if all parts of a ship have been hit
  */
 
@@ -160,12 +165,13 @@ function sinking(elem) {
 }
 
 /**
- * setShipNumber - description
+ * setShipNumber - Sets the number of ships
  *
- * @param  {int} input1 the number of ships chosen by user
- * @param  {Object} elem   description
- * @return {type}        description
+ * @param  {Number} input1 the number of ships chosen by user
+ * @param  {Object} elem   takes in an object which is broken down.
+ * @return {type}        either sends an error message or sets the number of ships to be used globally and breaks down the object that contains ‘number:’ input ‘ok’
  */
+
 
 function setShipNumber(input1, elem) {
     return () => {
@@ -189,11 +195,12 @@ function setShipNumber(input1, elem) {
 }
 
 /**
- * shipchoosing - description
+ * shipchoosing - Changes the base so that only the number of ships is there
  *
- * @param  {int} num1 description
- * @return {void}      description
+ * @param  {number} num1 the number of ships chosen
+ * @return {void}      removes the last element in a loop for (5 - num1)
  */
+
 
 function shipchoosing(num1) {
     for (let i = 0; i &lt; (5 - num1); i++) {
@@ -210,13 +217,13 @@ function shipchoosing(num1) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#breakdown">breakdown</a></li><li><a href="global.html#checkTaken">checkTaken</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dragDrop">dragDrop</a></li><li><a href="global.html#dragover_handler">dragover_handler</a></li><li><a href="global.html#gameCheck">gameCheck</a></li><li><a href="global.html#markShip">markShip</a></li><li><a href="global.html#markSquare">markSquare</a></li><li><a href="global.html#moveEnter">moveEnter</a></li><li><a href="global.html#moveOver">moveOver</a></li><li><a href="global.html#pSquares">pSquares</a></li><li><a href="global.html#resetAsk">resetAsk</a></li><li><a href="global.html#setShipNumber">setShipNumber</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#setupShips">setupShips</a></li><li><a href="global.html#shipchoosing">shipchoosing</a></li><li><a href="global.html#sinking">sinking</a></li><li><a href="global.html#startDrag">startDrag</a></li><li><a href="global.html#whichHit">whichHit</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#breakdown">breakdown</a></li><li><a href="global.html#checkTaken">checkTaken</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dragDrop">dragDrop</a></li><li><a href="global.html#gameCheck">gameCheck</a></li><li><a href="global.html#markShip">markShip</a></li><li><a href="global.html#markSquare">markSquare</a></li><li><a href="global.html#moveEnter">moveEnter</a></li><li><a href="global.html#moveOver">moveOver</a></li><li><a href="global.html#resetAsk">resetAsk</a></li><li><a href="global.html#setShipNumber">setShipNumber</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#setupShips">setupShips</a></li><li><a href="global.html#shipchoosing">shipchoosing</a></li><li><a href="global.html#sinking">sinking</a></li><li><a href="global.html#startDrag">startDrag</a></li><li><a href="global.html#whichHit">whichHit</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Sep 13 2020 18:50:51 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Sep 13 2020 21:31:40 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

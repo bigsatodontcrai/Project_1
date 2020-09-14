@@ -1,10 +1,13 @@
 /**
+*@file contains all functions that control the game board
+*/
+/**
  * setup - This function creates the necessary components for the board to work.
  *
- * @param  {Oject} parent  description
- * @param  {Function} mark    description
- * @param  {Object} Squares description
- * @return {void}         description
+ * @param  {Object} parent  takes in a document object namely either the opponent or player board
+ * @param  {Function} mark    passes in the mark function, in practice the opponent board mark function or the player board mark function which work differently at runtime
+ * @param  {Object} Squares In practice it passes in the empty array and pushes onto it every div element for the given board either the opponent or player is used
+ * @return {void}         sets up each board and defines the behavior of each square on click
  */
 
 function setup(parent, mark, Squares) {
@@ -33,11 +36,12 @@ function setup(parent, mark, Squares) {
     }
 
 }
+
 /**
  * setupShips - This function creates the area to store all draggable ships
  *
- * @param  {Object} parent description
- * @return {void}        description
+ * @param  {Object} parent takes in the base of the ships document object
+ * @return {void}        places a new ship object everywhere. Only called for reset.
  */
 
 function setupShips(parent) {
@@ -77,8 +81,8 @@ function setupShips(parent) {
 /**
  * breakdown - this is part of the reset function
  *
- * @param  {Object} parent description
- * @return {void}        description
+ * @param  {Object} parent the document object whose children will be deleted
+ * @return {void}        deletes every child of a document object
  */
 
 function breakdown(parent) {
@@ -88,10 +92,10 @@ function breakdown(parent) {
 }
 
 /**
- * resetAsk - When you click on reset, this function handles what to do.
+ * resetAsk - This function specifically resets the part of the page that asks for user input on number of ships
  *
- * @param  {Object} chooseBar description
- * @return {void}           description
+ * @param  {Object} chooseBar a document object namely the bar where input is taken in on the page
+ * @return {void}           reconstructs the document object that governs the number of ships in the correct place on the HTML and called in reset
  */
 
 function resetAsk(chooseBar) {

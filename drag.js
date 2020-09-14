@@ -1,8 +1,12 @@
 /**
- * startDrag - this function initiates the drop
+* @file contains all functions that control the drag and drop of the ships onto the board
+*/
+
+/**
+ * startDrag - this function initiates the drag and sets the dragged object
  *
- * @param  {Object} ev description
- * @return {void}    description
+ * @param  {Object} ev event
+ * @return {void}  sets the drag type ('move')
  */
 
 function startDrag(ev) {
@@ -13,7 +17,7 @@ function startDrag(ev) {
 }
 
 /**
- * dragDrop - this function handles the drop of the ship onto the board
+ * dragDrop - this function handles the drop of the ship onto the board. Transfering ship data to the board. Checks for edge cases of horizontal ships
  *
  * @return {void}  description
  */
@@ -73,9 +77,9 @@ function dragDrop() {
 /**
  * checkTaken - This function takes in the currently selected ship's index and the ship object itself
  *
- * @param  {Object} elem         description
- * @param  {int} pointerIndex description
- * @return {boolean}  returns wether or not the spaces are taken based on the ship length cases
+ * @param  {Object} elem     ship being selected
+ * @param  {Number} pointerIndex the selected index of the ship
+ * @return {boolean}  returns whether or not the spaces are taken based on the ship length cases
  */
 
 function checkTaken(elem, pointerIndex) {
@@ -101,31 +105,20 @@ function checkTaken(elem, pointerIndex) {
 }
 
 /**
- * dragover_handler - description
+ * moveOver - handles dragover HTML API behavior
  *
- * @param  {Object} ev description
- * @return {type}    description
- */
-
-function dragover_handler(ev) {
-    ev.preventDefault();
-}
-
-/**
- * moveOver - description
- *
- * @param  {Object} ev description
- * @return {void}    description
+ * @param  {Object} ev passes in the event taking place
+ * @return {void}    overrides the normal behavior of dragover
  */
 
 function moveOver(ev) {
     ev.preventDefault();
 }
 /**
- * moveEnter - description
+ * moveEnter - handles dragenter HTML API behavior
  *
- * @param  {Object} ev description
- * @return {void}    description
+ * @param  {Object} ev passes in event
+ * @return {void}    overrides the normal behavior of dragenter
  */
 
 function moveEnter(ev) {
