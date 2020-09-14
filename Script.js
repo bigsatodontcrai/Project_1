@@ -5,7 +5,7 @@
  * markSquare - Marks the square on the opponent board if it has been hit (red) or missed (grey) when clicked on that square
  *
  * @param  {Object} element takes in a specific square to
- * @return {Object}         change the child of that square which normally contains a div with className ‘circle’ to the classname ‘hitit’, specifying the opponent board has a hit, or, on another click, changes it to ‘missme’, specifying the opponent board has a miss
+ * @return {void}         change the child of that square which normally contains a div with className ‘circle’ to the classname ‘hitit’, specifying the opponent board has a hit, or, on another click, changes it to ‘missme’, specifying the opponent board has a miss
  */
 
 function markSquare(element) {
