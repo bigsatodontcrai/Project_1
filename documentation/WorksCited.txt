@@ -1,0 +1,6 @@
+This project was inspired by the following videos:
+
+https://www.youtube.com/watch?v=U64vIhh0TyM&t=2226s&ab_channel=AniaKub%C3%B3w%23JavaScriptGames
+
+
+https://www.youtube.com/watch?v=G6JTM-zt-dQ&ab_channel=WebDevSimplified
