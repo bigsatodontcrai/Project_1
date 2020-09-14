@@ -1,3 +1,7 @@
+/**
+ * @file variables that are used globally are all defined in here.
+ */
+
 let pSquares = [];
 let oSquares = [];
 let started = false;

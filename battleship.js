@@ -1,3 +1,7 @@
+
+/**
+ * @file runs the game of battleship 
+ */
 document.addEventListener('DOMContentLoaded', () => {
     let content = document.getElementById('content');
     let ocean = document.getElementById('ocean');
@@ -28,20 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Can reset once started.');
         }
     });
-    
+
     rotateButton.addEventListener('click', () => {
         if(base.id == 'base') {
             base.id = 'base-vert';
             ships.forEach(ship => ship.className += '-vert');
             hori = false;
-            
+
         }
         else if(base.id =='base-vert') {
             base.id = 'base';
             ships.forEach(ship => ship.className = ship.className.slice(0, -5));
             hori = true;
         }
-        
+
     });
 
     startButton.addEventListener('click', () => {
@@ -60,6 +64,3 @@ document.addEventListener('DOMContentLoaded', () => {
     shipselectclick.addEventListener('click', setShipNumber(input1, done));
 
 });
-
-
-
