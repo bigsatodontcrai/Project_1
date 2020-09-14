@@ -2,5 +2,6 @@ This project was inspired by the following videos:
 
 https://www.youtube.com/watch?v=U64vIhh0TyM&t=2226s&ab_channel=AniaKub%C3%B3w%23JavaScriptGames
 
-
-https://www.youtube.com/watch?v=G6JTM-zt-dQ&ab_channel=WebDevSimplified
+The drop functionality in lines 25-76 of drag.js (function dragDrop()) is mostly taken from the dragDrop code
+used in the above video. Several changes were made to fit the already designed functionality of the rest of the 
+code and vice-versa. 
