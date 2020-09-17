@@ -67,6 +67,7 @@ function dragDrop() {
 
         }
         else if(!isTaken) {
+            console.log('hey!');
             base.removeChild(draggedShip);
         }
     } else {
