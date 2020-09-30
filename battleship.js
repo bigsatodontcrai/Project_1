@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let startButton = document.getElementById('start');
     let rotateButton = document.getElementById('rotate');
     let done = document.getElementById('choose');
+    
+    ai_functionality();
+    
     resetButton.addEventListener('click', () => {
         if(started) {
             base.id = 'base';
@@ -19,6 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
             started = false;
             sinkCounter = 0;
             num2 = 0;
+            
+            ai_check = 0;
+            ai_level = 1;
+            ai_util = 1;
+            
+            placeable = 1;
+            
+            //for ship_handler reset
+            ship_array = [0];
+            ship_sunk_array = [0];
+            ship_array_playerSide = [0];
+            ship_sunk_array_playerSide = [0];
+            
             breakdown(content);
             breakdown(ocean);
             pSquares = [];
@@ -26,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setup(content, markSquare, oSquares);
             setup(ocean, markShip, pSquares);
             setupShips(base);
+            //opponent_place_ships;
             resetAsk(done);
         }
         else {
