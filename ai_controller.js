@@ -15,13 +15,13 @@ function ai_button_switch(){
 		if(ai_selector == 0){
 			ai_selector = 1;
 			console.log("ai_selector: "+ ai_selector);
-			document.querySelector("#ai_switch").className = "btns";
+			document.querySelector("#ai_switch").style.background = "hsl(115, 63%, 51%)";
 		}
 		//toggle ai_selector to 0 if it is 1
 		else if(ai_selector == 1){
 			ai_selector = 0;
 			console.log("ai_selector: "+ ai_selector);
-			document.querySelector("#ai_switch").className = "btns_alt";
+			document.querySelector("#ai_switch").style.background = "red";
 		}
 	}
 }
