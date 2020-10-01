@@ -494,14 +494,14 @@ function level_2() {
 
 				//set the firstChild.className to hitit
 				fire_array[i].firstChild.className = "hitit";
-
-				//when at end position
-				if (i == fire_array.length - 1) {
-					array_chk = fire_array.length;
-				}
-
 				//exit function
 				break;
+			}
+		}
+		//check for places
+		for(var i = 1; i < fire_array.length; i++){
+			if(fire_array[i].firstChild.className == "hitit"){
+				array_chk++;
 			}
 		}
 		//condition when the array is finished
