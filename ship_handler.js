@@ -77,7 +77,7 @@ function add_ship_playerSide(parent, ship_size){
 	let to_ship = [0];
 	
 	to_ship[0] = ship_size;
-	for (var i = 0; i < 81; i++){
+	for (let i = 0; i < 81; i++){
 		if(parent.children[i].dataset.size == "" + ship_size){
 			to_ship.push(parent.children[i]);
 		}
