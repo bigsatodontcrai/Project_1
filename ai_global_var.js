@@ -24,6 +24,7 @@ let ship_length = "";	//This is the ship_length of the code
 //init as a 1 element array
 //ignore the first element when writing code
 let fire_array = [0];	//This is the fire
+let dir = 0;
 
 /**
 *	GLOBAL AI_SHIP_DECT

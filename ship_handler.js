@@ -1,6 +1,8 @@
 function set_ship_to_alert_status(ship_number){
+	/*
 	console.log("set_ship_to_alert_status_called");
 	console.log("ship_number " + ship_number);
+	*/
 	//if the ship is sunk, then return
 	if(ship_sunk_array[ship_number] == 0){
 		return;
@@ -10,8 +12,10 @@ function set_ship_to_alert_status(ship_number){
 	let has_not_sunk = 0;	
 	let temp = ship_array[ship_number];
 	//search through entire ship array
+	/*
 	console.log("length of temp: " + temp.length);
 	console.log("temp : " + temp);
+	*/
 	for(var i = 1; i < temp.length; i++){
 	
 		//if one element is missme, set flag to 1 and break
@@ -22,7 +26,7 @@ function set_ship_to_alert_status(ship_number){
 	}
 	
 	//if there is no missme, then state the ship has sunk
-	console.log("has_not_sunk flag: " + has_not_sunk);
+	//console.log("has_not_sunk flag: " + has_not_sunk);
 	if(has_not_sunk == 0){
 		//alert the player
 		alert("The ship " + ship_number + " has sunk!");
@@ -48,7 +52,7 @@ function set_ship_alert_handler(){
 }
 
 function add_ship(parent, ship_size, upper_bound){
-	console.log("add_ship_called");
+	//console.log("add_ship_called");
 	//sets an array of to_ship of size ship_size
 	//init with a 1 element array
 	//let the first element define the number of spaces left on the ship
@@ -70,7 +74,7 @@ function add_ship(parent, ship_size, upper_bound){
 }
 
 function add_ship_playerSide(parent, ship_size){
-	console.log("add_ship_playerSide_called");
+	//console.log("add_ship_playerSide_called");
 	//sets an array of to_ship of size ship_size
 	//init with a 1 element array
 	//let the first element define the number of spaces left on the ship
@@ -87,8 +91,8 @@ function add_ship_playerSide(parent, ship_size){
 }
 
 function set_ship_to_alert_status_playerSide(ship_number){
-	console.log("set_ship_to_alert_status_called");
-	console.log("ship_number " + ship_number);
+	//console.log("set_ship_to_alert_status_called");
+	//console.log("ship_number " + ship_number);
 	//if the ship is sunk, then return
 	if(ship_sunk_array_playerSide[ship_number] == 0){
 		return;
@@ -98,8 +102,8 @@ function set_ship_to_alert_status_playerSide(ship_number){
 	let has_not_sunk = 0;	
 	let temp = ship_array_playerSide[ship_number];
 	//search through entire ship array
-	console.log("length of temp: " + temp.length);
-	console.log("temp : " + temp);
+	//console.log("length of temp: " + temp.length);
+	//console.log("temp : " + temp);
 	for(var i = 1; i < temp.length; i++){
 	
 		//if one element is missme, set flag to 1 and break
@@ -110,7 +114,7 @@ function set_ship_to_alert_status_playerSide(ship_number){
 	}
 	
 	//if there is no missme, then state the ship has sunk
-	console.log("has_not_sunk flag: " + has_not_sunk);
+	//console.log("has_not_sunk flag: " + has_not_sunk);
 	if(has_not_sunk == 0){
 		//alert the player
 		alert("The ship " + ship_number + " has sunk!");

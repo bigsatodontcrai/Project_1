@@ -369,6 +369,7 @@ let pick_random_space = (fire) => {
 	let player_board = document.querySelector("#ocean");
 
 	//set the element we intend to hit
+	dir = fire;
 	return (player_board.children[possible_ai_attack_positions[fire]]);
 }
 
@@ -398,7 +399,7 @@ function level_1() {
 
 		if (selected_square.className == "square") {
 			selected_square.firstChild.className = "missme";
-			possible_ai_attack_positions.splice(fire, 1);
+			possible_ai_attack_positions.splice(dir, 1);
 			console.log(possible_ai_attack_positions);
 			console.log("ai missed their shot");
 
@@ -406,7 +407,7 @@ function level_1() {
 		//if the position has a ship, set it to hit marker
 		else {
 			selected_square.firstChild.className = "hitit";
-			possible_ai_attack_positions.splice(fire, 1);
+			possible_ai_attack_positions.splice(dir, 1);
 			console.log(possible_ai_attack_positions);
 			console.log("ai hit their shot");
 		}
@@ -426,83 +427,95 @@ function level_1() {
 *	is hit
 */
 function level_2() {
-	let checker = 1;
+	var upper_bound = 81;
 	if (ai_util != 0) {
 		return;
 	}
-	do {
-		checker = 1;
-		var upper_bound = 81;
-		let player_board = document.querySelector("#ocean");
-		//use same logic as level 1 when missing
-		if (orth_flag == 0) {
-			let arg0 = Math.random();
-			let fire = Math.floor(arg0 * upper_bound) + 0;
-			let selected_square0 = player_board.children[fire];
-			//set orth_flag to 1 when hit
-			if (selected_square0.firstChild.className != "hitit" && selected_square0.firstChild.className != "missme") {
-				checker = 0;
-				if (selected_square0.className == "square") {
-					selected_square0.firstChild.className = "missme";
-					console.log("called");
+	//use level_1 logic
+	if(orth_flag == 0){
+		let fire = 0;
+		
+		let selected_square = pick_random_space(fire);
+		
+		console.log(selected_square);
+		
+		if (selected_square.className == "square") {
+			selected_square.firstChild.className = "missme";
+			possible_ai_attack_positions.splice(dir, 1);
+			console.log(possible_ai_attack_positions);
+			console.log("ai missed their shot");
 
-				}
-				else {
-					selected_square0.firstChild.className = "hitit";
-					console.log("called hit");
-
-					//level 2 flags set
-					orth_flag = 1;
-
-					//finding the length of the ship
-					ship_length = selected_square0.dataset.size;
-
-					//caches the positions squares to hit
-					let itr = 0;
-					for (var i = 0; i < upper_bound; i++) {
-						if (player_board.children[i].dataset.size == ship_length) {
-							//add to array
-							fire_array.push(player_board.children[i]);
-						}
-					}
-				}
-			}
 		}
-		//this is for level 2 logic
+		//if the position has a ship, set it to hit marker
 		else {
-			checker = 0;
-			let array_chk = 1;
-			//increment through fire array
-			for (var i = 1; i < fire_array.length; i++) {
-				//if the part of the array has not been hit, hit it
-				if (fire_array[i].firstChild.className != "hitit") {
+			selected_square.firstChild.className = "hitit";
+			possible_ai_attack_positions.splice(dir, 1);
+			console.log(possible_ai_attack_positions);
+			console.log("ai hit their shot");
 
-					//set the firstChild.className to hitit
-					fire_array[i].firstChild.className = "hitit";
-
-					//when at end position
-					if (i == fire_array.length - 1) {
-						array_chk = fire_array.length;
-					}
-
-					//exit function
-					break;
-				}
-				array_chk++;
-			}
-			//condition when the array is finished
-			if (array_chk == fire_array.length) {
-				console.log("empty array called");
-
-				//set the orth_flag to zero
+			//when size != 1
+			//set flags
+			if(selected_square.dataset.size != "1"){
+				orth_flag = 1;
+			}	
+			else{
 				orth_flag = 0;
-
-				//clear fire_array
-				//set fire_array to 1 element array
-				fire_array = [0];
+				return;
+			}
+			
+			//setup fire_array
+			let parent = document.querySelector("#ocean");
+			
+			//do this when size != 1
+			//insert ship to attack array
+			for(var i = 0; i < upper_bound; i++){
+				if(parent.children[i].dataset.size == selected_square.dataset.size){
+					fire_array.push(parent.children[i]);
+				}
 			}
 		}
-	} while (checker == 1);
+	}	
+	//this is for level 2 logic
+	else {
+		let array_chk = 1;
+		//increment through fire array
+		for (var i = 1; i < fire_array.length; i++) {
+			//if the part of the array has not been hit, hit it
+			if (fire_array[i].firstChild.className != "hitit") {
+				//splice from possible_ai_attack_positions
+				for(var k = 0; k < possible_ai_attack_positions.length; k++){
+					if(parseInt(fire_array[i].dataset.id) == possible_ai_attack_positions[k]){
+						possible_ai_attack_positions.splice(k, 1);
+						break;
+					}
+				}
+				
+				console.log(possible_ai_attack_positions);
+
+				//set the firstChild.className to hitit
+				fire_array[i].firstChild.className = "hitit";
+
+				//when at end position
+				if (i == fire_array.length - 1) {
+					array_chk = fire_array.length;
+				}
+
+				//exit function
+				break;
+			}
+		}
+		//condition when the array is finished
+		if (array_chk == fire_array.length) {
+			console.log("empty array called");
+
+			//set the orth_flag to zero
+			orth_flag = 0;
+
+			//clear fire_array
+			//set fire_array to 1 element array
+			fire_array = [0];
+		}
+	}
 
 }
 
