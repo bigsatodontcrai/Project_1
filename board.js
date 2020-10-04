@@ -12,19 +12,37 @@
 
 function setup(parent, mark, Squares) {
     let elem;
-
     for (let i = 0; i < 81; i++) {
         let circ;
         elem = document.createElement('div');
         elem.className = 'square';
         elem.setAttribute('ondragover', 'event.preventDefault()');
-        elem.addEventListener('click', mark(elem));
+       // elem.addEventListener('click', mark(elem));
+       /*
+       * added new marking system
+       */
+       /*
+       if(ai_selector == 1){
+        	elem.addEventListener('click', new_mark_system_0(elem));
+        }
+        else{
+        	elem.addEventListener("click", mark(elem));
+        }
+        */
         elem.addEventListener('dblclick', destroy(elem));
         elem.addEventListener('dragstart', startDrag);
         elem.addEventListener('dragover', moveOver);
         elem.addEventListener('dragenter', moveEnter);
         elem.addEventListener('drop', dragDrop);
-
+        /*
+        if(parent.id != "ocean"){
+        	elem.addEventListener('click', level_3);
+        	elem.addEventListener('click', game_state_player);
+        }
+        if(parent.id != "ocean"){
+        	elem.addEventListener('click', game_state_opponent);
+        }
+	*/
         parent.append(elem);
         elem.dataset.id = i;
         elem.dataset.size = 0;
@@ -32,9 +50,23 @@ function setup(parent, mark, Squares) {
         circ = document.createElement('span');
         circ.className = 'circle';
         elem.append(circ);
-
     }
+    
+  //  if(parent.id != "ocean"){
+    //	for(var d = 1; d <= document.querySelector("#numShips"); i++){
+    /*
+    	if(parent.id != "ocean"){
+    		opponent_place_ships(parent, 1);
+    		//opponent_place_ships(parent, 2);
+    		//opponent_place_ships(parent, 3);
+    		//opponent_place_ships(parent, 4);
+    		//opponent_place_ships(parent, 5);
+    	}
+    */
+    //	}
+   // }
 
+      
 }
 
 /**

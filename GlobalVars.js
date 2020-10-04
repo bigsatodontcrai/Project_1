@@ -17,6 +17,8 @@ let ships = document.querySelectorAll('.ship');
 let selected = false;
 let num2 = 0;
 
+let possible_ai_attack_positions = [];
+
 ships.forEach(ship => ship.addEventListener('mousedown', (event) => {
     shipById = event.target.id;
     console.log(shipById);

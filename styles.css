@@ -94,8 +94,36 @@
         color: black;
         font: 2vmin sans-serif;
     }
+    
+    .invisi_ship_marker {
+    	border: 1px solid rgba(17, 0 ,255, 0.2);
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	background-color: green;
+    	color: red;
+    	font: 3vmin sans-serif;
+    }
 
-
+    .invisi_ship_marker_front {
+    	border: 1px solid rgba(17, 0, 255, 0.2);
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	background-color: yellow;
+    	color: red;
+    	font: 3vmin sans-serif;
+    }
+    
+    .invisi_ship_marker_end {
+    	border: 1px solid rgba(17, 0, 255, 0.2);
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	background-color: purple;
+    	color: red;
+    	font: 3vmin sans-serif;
+    }
 
     .square {
         border: 1px solid rgba(17, 0, 255, 0.2);
@@ -335,6 +363,20 @@
         cursor: pointer;
         border-radius: .2em;
         color: #333;
+    }
+    
+    .btns_alt {
+    	font-size: 0.3vmin sans-serif;
+    	background-color: red;
+    	height: 3vmin;
+    	width: 15vmin;
+    	padding: .3em 1em;
+    	outline: none;
+    	border: none;
+    	text-decoration: none;
+    	cursor: pointer;
+    	border-radius: .2em;
+    	color: #333;
     }
 
 

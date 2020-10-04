@@ -53,6 +53,9 @@ function destroy(element) {
 
 
 function markShip(square) {
+	if(ai_selector == 1){
+		return;
+	}
     return () => {
         if(started) {
             if (square.classList.contains('taken') && square.firstChild.className != 'hitit') {
